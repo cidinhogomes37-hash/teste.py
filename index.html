@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stilo Barbearia | Agende Seu Horário</title>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #161920;
+            --border-color: #2a2e39;
+            --text-main: #f0f3f9;
+            --text-muted: #9ba1b0;
+            --accent-color: #d4af37; /* Dourado elegante para barbearia */
+            --accent-hover: #e6c547;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .badge-info {
+            display: inline-block;
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Tabela de Preços e Serviços */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .price-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .price-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .price-card.featured {
+            border-color: var(--accent-color);
+        }
+
+        .price-header h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .price-header .price {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 15px 0 5px 0;
+        }
+
+        .duration {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .price-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .price-features li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-color);
+            color: #0f1115;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Informações e Funcionamento */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <h1>Stilo Barbearia</h1>
+            <p>Tradição, estilo e um atendimento de primeira para cuidar do seu visual com excelência.</p>
+            <div class="badge-info">⏰ Aberto de Segunda a Sábado • das 10:00 às 19:00</div>
+        </header>
+
+        <!-- Serviços e Preços -->
+        <h2 class="section-title">Nossos Serviços & Preços</h2>
+        <div class="pricing-grid">
+            
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>Corte Cabelo</h3>
+                    <div class="price">R$ 40</div>
+                    <span class="duration">⏱️ Duração média: 40 minutos</span>
+                    <p>Corte social, degradê ou moderno, com acabamento impecável na navalha.</p>
+                </div>
+                <ul class="price-features">
+                    <li>Lavagem inclusa</li>
+                    <li>Acabamento com navalha</li>
+                    <li>Finalização com pomada</li>
+                </ul>
+                <a href="https://wa.me/5511934554298?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20para%20Corte%20de%20Cabelo." target="_blank" class="btn">Agendar Horário</a>
+            </div>
+
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>Barba Completa</h3>
+                    <div class="price">R$ 30</div>
+                    <span class="duration">⏱️ Duração média: 30 minutos</span>
+                    <p>Modelagem de barba com toalha quentinha e produtos hidratantes de alta qualidade.</p>
+                </div>
+                <ul class="price-features">
+                    <li>Toalha quente</li>
+                    <li>Alinhamento e desenho</li>
+                    <li>Óleo hidratante pós-barba</li>
+                </ul>
+                <a href="https://wa.me/5511934554298?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20para%20Barba%20Completa." target="_blank" class="btn">Agendar Horário</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="price-header">
+                    <h3>Combo Master (Corte + Barba)</h3>
+                    <div class="price">R$ 60</div>
+                    <span class="duration">⏱️ Duração média: 1h15</span>
+                    <p>O pacote completo para sair com o visual renovado e impecável.</p>
+                </div>
+                <ul class="price-features">
+                    <li>Cabelo completo com lavagem</li>
+                    <li>Barba com toalha quente</li>
+                    <li>Atendimento prioritário</li>
+                </ul>
+                <a href="https://wa.me/5511934554298?text=Olá!%20Gostaria%20de%20agendar%20o%20Combo%20Master%20(Corte%20+%20Barba)." target="_blank" class="btn">Agendar Horário</a>
+            </div>
+
+        </div>
+
+        <!-- Informações de Funcionamento -->
+        <h2 class="section-title">Como Funciona o Atendimento</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🕒 Horários Flexíveis</h3>
+                <p>Funcionamos das 10:00 às 19:00. Trabalhamos com limite diário de atendimentos para garantir calma, pontualidade e máxima qualidade em cada corte.</p>
+            </div>
+            <div class="info-card">
+                <h3>📱 Agendamento Rápido</h3>
+                <p>Clicou no botão, o WhatsApp abre na hora com a mensagem pronta. Escolha o melhor horário disponível e garanta a sua vaga sem filas de espera.</p>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>&copy; 2026 Stilo Barbearia — Desenvolvido por Active Desenvolvimento.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
